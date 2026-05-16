@@ -1,0 +1,49 @@
+.hero {
+  min-height: 100vh;
+  background-color: #4a6a8a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 700px;
+  padding: 2rem;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #111;
+  margin-bottom: 2.9rem;
+  line-height: 1.2; /* espacamento entre linhas */
+}
+
+.hero-content p {
+  color: #333;
+  margin-bottom: 2rem;
+  font-size: 1.3rem;
+}
+
+.botoesDeAcesso {
+  display: flex;
+  gap: 1rem; /* espaco entre botoes */
+  justify-content: center;
+  font-weight: 600;
+  text-decoration: none; /*tirar linha de link*/
+}
+
+.btnCadastro {
+  background: #111;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+}
+
+.btnLogin {
+  background: transparent;
+  color: #111;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+}
