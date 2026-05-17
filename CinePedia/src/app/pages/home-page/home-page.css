@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 .hero {
-  min-height: 100vh;
+  min-height: 100vh;  
   background-color: #4a6a8a;
   display: flex;
   align-items: center;
