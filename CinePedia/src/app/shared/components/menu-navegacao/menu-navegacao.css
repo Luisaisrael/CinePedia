@@ -18,13 +18,13 @@
 .menu-navegacao-logo {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 1px;
   text-decoration: none;
 }
 
 .logo {
-  width: 35px;
-  height: 35px;
+  width: 100px;
+  height: 100px;
   object-fit: contain;
 }
 
