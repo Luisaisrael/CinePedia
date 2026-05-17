@@ -1,40 +1,25 @@
 <div class="catalog-container">
   <header class="catalog-header">
-    <h2>Seu Catálogo de Filmes</h2>
-    <p>Explore, avalie e relembre suas jornadas cinematográficas.</p>
+    <span class="section-title">FILMES POPULARES ESTA SEMANA</span>
   </header>
 
   <main class="movie-grid">
     @for (movie of movies(); track movie.id) {
-      <article class="movie-card" [routerLink]="['/filme', movie.id]">
-        <div class="poster-wrapper">
-          <img [src]="movie.posterUrl" [alt]="'Pôster do filme ' + movie.title" class="movie-poster">
-          <div class="movie-overlay">
-            <span class="view-detail">Ver Detalhes</span>
-          </div>
-        </div>
-        
-        <div class="movie-info">
-          <h3 class="movie-title">{{ movie.title }}</h3>
-          <span class="movie-meta">{{ movie.year }} • Dirigido por {{ movie.director }}</span>
+      <div class="movie-card" (click)="onSelectMovie(movie)">
+        <div class="poster-container">
+          <img [src]="movie.posterUrl" [alt]="movie.title" class="movie-poster">
           
-          <div class="movie-rating" [title]="'Nota: ' + movie.rating">
-            <span class="stars">{{ getStars(movie.rating) }}</span>
-            <span class="rating-number">{{ movie.rating }}</span>
+          <div class="movie-overlay">
+            <div class="overlay-info">
+              <h3 class="movie-title">{{ movie.title }}</h3>
+              <p class="movie-meta">{{ movie.year }} • Dir: {{ movie.director }}</p>
+              <div class="movie-rating">
+                <span class="star-icon">★</span> {{ movie.rating }}
+              </div>
+              <span class="click-hint">Clique para avaliar</span>
+            </div>
           </div>
-
-          @if (movie.userReview) {
-            <p class="user-comment">
-              <strong>Seu comentário:</strong> "{{ movie.userReview }}"
-            </p>
-          } @else {
-            <p class="user-comment no-comment">Sem comentários ainda.</p>
-          }
         </div>
-      </article>
-    } @empty {
-      <div class="empty-catalog">
-        <p>Nenhum filme encontrado no seu catálogo.</p>
       </div>
     }
   </main>
