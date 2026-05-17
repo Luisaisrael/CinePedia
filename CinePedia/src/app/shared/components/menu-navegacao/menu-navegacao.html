@@ -1,21 +1,20 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu navegacao</title>
-</head>
-<body>
-  <nav class="menu-navegacao">
-    <div class="menu-navegacao-logo">
-      <img src="assets/logo.png" class="logo">
-      <span class="menuNavegacao_logo-nome">CinePedia</span>
-    </div>
-    <ul class="menu">
-      <li><a routerLink="/perfil" class="nav-link">Perfil</a></li>
-      <li><a routerLink="/listagem" class="nav-link">Filmes</a></li>
-      <li><a routerLink="/relatorio" class="nav-link">Relatório</a></li>
-    </ul>
-  </nav>
-</body>
-</html>
+<nav class="menu-navegacao">
+  <div class="menu-navegacao-logo">
+    <a routerLink="/home-page">
+      <img src="https://endlessicons.com/wp-content/uploads/2012/11/video-tape-icon-614x460.png" class="logo">
+    </a>
+    <span><a routerLink="/home-page" class="menuNavegacao_logo-nome">CinePedia</a></span>
+  </div>
+  <ul class="menu">
+    <li><a routerLink="/perfil" class="nav-link">Perfil</a></li>
+    <li><a routerLink="/listagem" class="nav-link">Filmes</a></li>
+    <li><a routerLink="/relatorio" class="nav-link">Relatório</a></li>
+  </ul>
+  <div class="search-container">
+    <form class="search-container">
+      <input type="text" id="search-bar" placeholder="Busca">
+      <a href="#"><img class="search-icon"
+          src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"></a>
+    </form>
+  </div>
+</nav>

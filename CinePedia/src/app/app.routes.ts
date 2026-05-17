@@ -13,4 +13,5 @@ export const routes: Routes = [
   { path: 'listagem', component: Listagem},
   { path: 'perfil', component: Perfil },
   { path: 'relatorio', component: Relatorio },
+  { path: 'home-page', component: HomePage},
 ];
