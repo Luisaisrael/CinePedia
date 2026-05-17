@@ -1,1 +1,26 @@
-<p>listagem works!</p>
+<div class="catalog-container">
+  <header class="catalog-header">
+    <span class="section-title">FILMES POPULARES ESTA SEMANA</span>
+  </header>
+
+  <main class="movie-grid">
+    @for (movie of movies(); track movie.id) {
+      <div class="movie-card" (click)="onSelectMovie(movie)">
+        <div class="poster-container">
+          <img [src]="movie.posterUrl" [alt]="movie.title" class="movie-poster">
+          
+          <div class="movie-overlay">
+            <div class="overlay-info">
+              <h3 class="movie-title">{{ movie.title }}</h3>
+              <p class="movie-meta">{{ movie.year }} • Dir: {{ movie.director }}</p>
+              <div class="movie-rating">
+                <span class="star-icon">★</span> {{ movie.rating }}
+              </div>
+              <span class="click-hint">Clique para avaliar</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    }
+  </main>
+</div>

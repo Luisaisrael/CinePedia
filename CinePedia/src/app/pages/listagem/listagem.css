@@ -1,0 +1,128 @@
+.catalog-container {
+  min-height: 100vh;
+  background-color: #14181c; /* O tom de grafite escuro clássico do Letterboxd */
+  color: #9ab;
+  padding: 2rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.catalog-header {
+  max-width: 1100px;
+  margin: 0 auto 1.5rem auto;
+  border-bottom: 1px solid #24303c;
+  padding-bottom: 0.5rem;
+}
+
+.section-title {
+  font-size: 0.85rem;
+  letter-spacing: 0.075em;
+  color: #9ab;
+  font-weight: 600;
+}
+
+/* Grid das Capas */
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.25rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* O Card do Filme */
+.movie-card {
+  cursor: pointer;
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.15s ease-in-out;
+}
+
+/* Efeito de borda verde/azul sutil ao redor do card no hover (estilo Letterboxd) */
+.movie-card:hover {
+  transform: scale(1.02);
+}
+
+.poster-container {
+  position: relative;
+  aspect-ratio: 2 / 3;
+  width: 100%;
+  background-color: #24303c;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.movie-poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* O Overlay que esconde/mostra as informações */
+.movie-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(12, 14, 16, 0.92); /* Fundo quase preto translúcido */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.25rem;
+  box-sizing: border-box;
+  text-align: center;
+  
+  /* Estado inicial: Invisível */
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+/* Quando passa o mouse no card, revela o overlay */
+.movie-card:hover .movie-overlay {
+  opacity: 1;
+}
+
+/* Conteúdo interno do Hover */
+.overlay-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.movie-title {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.movie-meta {
+  color: #9ab;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.movie-rating {
+  color: #ffb800; /* Amarelo das estrelas */
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-top: 0.25rem;
+}
+
+.star-icon {
+  font-size: 1.2rem;
+}
+
+.click-hint {
+  margin-top: 1rem;
+  font-size: 0.75rem;
+  color: #40b4ff; /* Azul de destaque para ação */
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
