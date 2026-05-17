@@ -55,6 +55,6 @@ export class Listagem {
 
   // 2. A função 'onSelectMovie' que o HTML também está reclamando:
   onSelectMovie(movie: MovieCatalogItem): void {
-    alert(`Você clicou em "${movie.title}". Aqui abrirá a tela/modal para dar nota, comentar e adicionar à lista.`);
+    alert(`Você clicou em "${movie.title}". Aqui abrirá a tela para dar nota, comentar e adicionar à lista.`);
   }
 }
