@@ -24,7 +24,8 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 40px;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  /* Linha que divide a barra de navegação */
+  /* border-bottom: 2px solid rgba(255, 255, 255, 0.1); */
 }
 
 /* ── Logo ── */
