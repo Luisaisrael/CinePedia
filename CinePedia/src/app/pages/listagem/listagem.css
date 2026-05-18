@@ -1,6 +1,6 @@
 .catalog-container {
   min-height: 100vh;
-  background-color: #14181c; /* O tom de grafite escuro clássico do Letterboxd */
+  background-color: #4a6a8a;
   color: #9ab;
   padding: 2rem;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -38,7 +38,7 @@
   transition: transform 0.15s ease-in-out;
 }
 
-/* Efeito de borda verde/azul sutil ao redor do card no hover (estilo Letterboxd) */
+/* Efeito de borda verde/azul sutil ao redor do card no hover */
 .movie-card:hover {
   transform: scale(1.02);
 }

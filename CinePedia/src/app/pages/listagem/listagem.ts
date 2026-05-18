@@ -17,7 +17,7 @@ interface MovieCatalogItem {
   styleUrl: './listagem.css',
 })
 export class Listagem {
-  // 1. A propriedade 'movies' que o HTML está reclamando:
+  // 1. A propriedade 'movies'
   movies = signal<MovieCatalogItem[]>([
     {
       id: 1,
@@ -50,6 +50,70 @@ export class Listagem {
       director: 'Kristoffer Borgli',
       posterUrl: 'https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=400&q=80',
       rating: 4.5
+    },
+    {
+      id: 5,
+      title: 'Dune: Part Two',
+      year: 2024,
+      director: 'Denis Villeneuve',
+      posterUrl: 'https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=400&q=80',
+      rating: 4.8
+    },
+    {
+      id: 6,
+      title: 'Oppenheimer',
+      year: 2023,
+      director: 'Christopher Nolan',
+      posterUrl: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&q=80',
+      rating: 4.7
+    },
+    {
+      id: 7,
+      title: 'Everything Everywhere All at Once',
+      year: 2022,
+      director: 'Daniel Kwan, Daniel Scheinert',
+      posterUrl: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?w=400&q=80',
+      rating: 4.4
+    },
+    {
+      id: 8,
+      title: 'Parasite',
+      year: 2019,
+      director: 'Bong Joon Ho',
+      posterUrl: 'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=400&q=80',
+      rating: 4.9
+    },
+    {
+      id: 9,
+      title: 'Whiplash',
+      year: 2014,
+      director: 'Damien Chazelle',
+      posterUrl: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=400&q=80',
+      rating: 4.7
+    },
+    {
+      id: 10,
+      title: 'Spider-Man: Into the Spider-Verse',
+      year: 2018,
+      director: 'Bob Persichetti, Peter Ramsey',
+      posterUrl: 'https://images.unsplash.com/photo-1635805737707-575885ab0820?w=400&q=80',
+      rating: 4.6
+    },
+    {
+      id: 11,
+      title: 'La La Land',
+      year: 2016,
+      director: 'Damien Chazelle',
+      posterUrl: 'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=400&q=80',
+      rating: 4.1
+    },
+    {
+      id: 12,
+      title: 'The Batman',
+      year: 2022,
+      director: 'Matt Reeves',
+      posterUrl: 'https://images.unsplash.com/photo-1509248961158-e54f6934749c?w=400&q=80',
+      rating: 4.0
     }
   ]);
 
