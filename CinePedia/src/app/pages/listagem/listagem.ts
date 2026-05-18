@@ -1,5 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 interface MovieCatalogItem {
   id: number;
@@ -12,7 +13,7 @@ interface MovieCatalogItem {
 
 @Component({
   selector: 'app-listagem',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './listagem.html',
   styleUrl: './listagem.css',
 })
