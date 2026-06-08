@@ -1,34 +1,44 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-</head>
-<body>
-    <div class="login-container">
+<div class="login-container">
+
   <div class="login-titulo">
-    <h1> Mais que filmes, experiências.
-      <br>
-      Entre e compartilhe a sua.
-    </h1>
+    <h1>Mais que filmes, experiências.<br>Entre e compartilhe a sua.</h1>
   </div>
+
   <div class="login-card">
-    <div class="campo">
-      <label>Email</label>
-      <input type="email">
-    </div>
-    <div class="campo">
-      <label>Senha</label>
-      <input type="password">
-    </div>
-    <button class="btn-entrar">Entrar</button>
+    <form [formGroup]="formulario" (ngSubmit)="entrar()">
+
+      <div class="campo">
+        <label>Email</label>
+        <input type="email" formControlName="email" placeholder="seu@email.com">
+        @if (formulario.get('email')?.invalid && formulario.get('email')?.touched) {
+          <span class="form-erro">Email inválido</span>
+        }
+      </div>
+
+      <div class="campo">
+        <label>Senha</label>
+        <input type="password" formControlName="senha" placeholder="Sua senha">
+        @if (formulario.get('senha')?.invalid && formulario.get('senha')?.touched) {
+          <span class="form-erro">Senha obrigatória</span>
+        }
+      </div>
+
+      @if (erro()) {
+        <span class="form-erro geral">{{ erro() }}</span>
+      }
+
+      <button type="submit" class="btn-entrar" [disabled]="carregando()">
+        {{ carregando() ? 'Entrando...' : 'Entrar' }}
+      </button>
+
+    </form>
   </div>
+
   <p class="descricao">A rede social para amantes do cinema.</p>
+
   <div class="cadastro">
     <p>Não possui uma conta?</p>
     <button routerLink="/cadastro">Cadastrar-se</button>
   </div>
-</div>
-</body>
-</html>
+
+</div>  

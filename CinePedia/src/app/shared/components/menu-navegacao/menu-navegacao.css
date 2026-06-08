@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -8,13 +9,13 @@
 }
 
 .menu-container {
-  max-width: 1100px; 
+  max-width: 1100px;
   width: 100%;
   height: 100%;
-  margin: 0 auto; /* Centraliza a div na tela */
+  margin: 0 auto;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Distribui os 3 blocos igualmente */
+  justify-content: space-between;
 }
 
 .menu-navegacao {
@@ -24,11 +25,8 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 40px;
-  /* Linha que divide a barra de navegação */
-  /* border-bottom: 2px solid rgba(255, 255, 255, 0.1); */
 }
 
-/* ── Logo ── */
 .menu-navegacao-logo {
   display: flex;
   align-items: center;
@@ -47,20 +45,19 @@
   font-weight: bold;
 }
 
-/* ── Links ── */
+/*Links*/
 .menu {
   display: flex;
   align-items: center;
   gap: 8px;
   list-style: none;
-  /* empurra os links para junto da logo */
   margin-right: auto;
   margin-left: 32px;
 }
 
 .nav-link {
   color: black;
-  font-size: 1.0rem;
+  font-size: 1rem;
   font-weight: 500;
   padding: 6px 14px;
   border-radius: 999px;
@@ -68,51 +65,65 @@
 }
 
 .nav-link:hover,
-.nav-link:active  {
+.nav-link:active {
   color: #ffffff;
   background: rgba(255, 255, 255, 0.12);
 }
 
-/* ── Barra de pesquisa ── */
-.search-container{
+/*Barra de pesquisa*/
+.search-container {
   width: 490px;
+  margin-left: 20px;
+
+  /* ALTERADO:
+     position: relative permite posicionar o botão
+     dentro da barra de pesquisa */
+  position: relative;
+
   display: flex;
   align-items: center;
-  margin-left: 20px;
 }
 
-input#search-bar{
+input#search-bar {
   margin: 0 auto;
   width: 100%;
   height: 45px;
-  padding: 0 20px;
+  padding: 0 50px 0 20px;
+
   font-size: 1rem;
   border: 1px solid #D0CFCE;
   border-radius: 999px;
   outline: none;
-  &:focus{
-    border: 1px solid #000000;
-    transition: 0.35s ease;
-    color: #000000;
-    &::-webkit-input-placeholder{
-      transition: opacity 0.45s ease; 
-  	  opacity: 0;
-     }
-    &::-moz-placeholder {
-      transition: opacity 0.45s ease; 
-  	  opacity: 0;
-     }
-    &:-ms-placeholder {
-     transition: opacity 0.45s ease; 
-  	 opacity: 0;
-     }    
-   }
- }
 
-.search-icon{
-  position: relative;
-  width: 75px;
-  height: 75px;
-  right: 60px;
-  top: 1px;
+  &:focus { /*focus significa q input esta selecionado*/
+    border: 1px solid #000000;
+    transition: 0.25s ease;/*velocidade e o ritmo de uma animação*/
+
+    &::-webkit-input-placeholder {/*Esconde o texto do placeholder ("Busca") quando o campo recebe foco.*/
+      transition: opacity 0.45s ease;
+      opacity: 0;
+    } 
+  }
+}
+
+.search-btn {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-icon {
+  width: 42px;
+  height: 42px;
+  display: block;
 }

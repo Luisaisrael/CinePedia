@@ -1,0 +1,297 @@
+
+body {
+  background-color: #385A7D;
+  margin: 0;
+}
+.detalhe-container {
+  max-width: 960px;
+  margin: 2rem auto;
+  padding: 30px 1.5rem;
+  color: white; 
+  background-color: #385A7D;
+}
+
+.detalhe-topo {
+  display: flex;
+  gap: 2rem;
+}
+
+/* --- Poster --- */
+.poster {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: -3.5rem;
+  padding-right: 3.5rem;
+
+}
+
+.detalhe-poster {
+  width: 280px;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+/*Estrelas interativas (avaliação do usuário) */
+.avaliar-box {
+  text-align: center;
+}
+
+.avaliar-label {
+  display: block;
+  font-size: 1.50rem;
+  color: white;
+  margin-bottom: 4px;
+  padding-top: 0.80rem;
+}
+
+.estrelas-interativas {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+.estrelas-interativas .estrela {
+  color: #444;
+  transition: color 0.15s, transform 0.1s;
+}
+
+.estrelas-interativas .estrela.ativa {
+  color: #f5c518;
+}
+
+.estrelas-interativas .estrela:hover {
+  transform: scale(1.2);
+}
+
+.btn-lista {
+  margin-top: 0.8rem;
+  background: transparent;
+  border: 1px solid #7ec8e3;
+  color: #7ec8e3;
+  padding: 8px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn-lista:hover:not(:disabled) {
+  background: #7ec8e3;  
+  color: #0f0f1a;
+}
+
+.btn-lista:disabled {
+  border-color: #4caf50;
+  color: #4caf50;
+  cursor: default;
+}
+
+/*Informações do filme*/
+.detalhe-info {
+  flex: 1;
+}
+
+.detalhe-titulo {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 1rem;
+}
+
+.detalhe-ano {
+  font-size: 1.2rem;
+  color: white;
+  font-weight: 400;
+  margin-left: 0.5rem;
+}
+
+/* --- Notas (TMDB vs CinePedia) --- */
+.notas-grid {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+
+.nota-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.nota-label {
+  font-size: 0.75rem;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding-bottom: 1.2rem;
+}
+
+.nota-valor {
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+/* Cor diferente para distinguir as duas fontes */
+.nota-valor.tmdb { color: #f5c518; }       /* amarelo = TMDB */
+.nota-valor.cinepedia { color: #7ec8e3; }  /* azul claro = CinePedia */
+
+.detalhe-diretor {
+  margin-bottom: 0.5rem;
+  color: white;
+  font-size: 1.30rem;
+}
+
+.detalhe-sinopse {
+  line-height: 1.6;
+  color: white;
+  font-size: 1.30rem;
+}
+
+/* --- Seção de avaliações --- */
+.avaliacoes-secao {
+  margin-top: 2.5rem;
+  border-top: 1px solid #333;
+  padding-top: 1.5rem;
+}
+
+.avaliacoes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.avaliacoes-header h2 {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.total-avaliacoes {
+  font-size: 0.85rem;
+  color: white;
+}
+
+/* --- Card de avaliação individual --- */
+.avaliacao-card {
+  padding: 1rem 0;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.av-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.av-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #446;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.av-usuario {
+  font-size: 0.95rem;
+  color: white;
+}
+
+.av-estrelas span {
+  color: #444;
+  font-size: 1rem;
+}
+
+.av-estrelas span.ativa {
+  color: #f5c518;
+}
+
+.av-data {
+  font-size: 0.75rem;
+  color: white;
+  margin-left: auto;
+}
+
+.av-comentario {
+  font-size: 0.9rem;
+  color: white;
+  margin: 0;
+}
+
+.sem-avaliacoes {
+  color: white;
+  font-style: italic;
+  padding: 1rem 0;
+}
+
+/* --- Formulário de nova avaliação --- */
+.form-avaliacao {
+  margin-top: 2rem;
+  background: #32506f;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.form-avaliacao h3 {
+  margin: 0 0 1rem;
+  font-size: 1.30rem;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid #333;
+  border-radius: 4px;
+  color: #e0e0e0;
+  padding: 0.6rem 0.8rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  box-sizing: border-box;
+}
+
+.form-textarea {
+  resize: vertical;
+  font-family: inherit;
+}
+
+.form-erro {
+  display: block;
+  font-size: 0.90rem;
+  color: #be1212;
+  margin-bottom: 0.5rem;
+}
+
+.btn-enviar {
+  background: #68c8eb;
+  color: #0f0f1a;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.btn-enviar:disabled {
+  background: #333;
+  color: #666;
+  cursor: not-allowed;
+}
+
+.mensagem {
+  text-align: center;
+  padding: 2rem;
+  color: #888;
+}
+
+.mensagem.erro {
+  color: #e57373;
+}

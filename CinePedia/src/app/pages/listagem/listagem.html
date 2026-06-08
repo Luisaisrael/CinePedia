@@ -4,17 +4,17 @@
   </header>
 
   <main class="movie-grid">
-    @for (movie of movies(); track movie.id) {
-      <div class="movie-card" (click)="onSelectMovie(movie)">
+    @for (movie of filmes(); track movie.id) {
+      <div class="movie-card" (click)="onSelecionarFilme(movie)">
         <div class="poster-container">
-          <img [src]="movie.posterUrl" [alt]="movie.title" class="movie-poster">
+          <img [src]="movie.posterUrl" [alt]="movie.titulo" class="movie-poster">
           
           <div class="movie-overlay">
             <div class="overlay-info">
-              <h3 class="movie-title">{{ movie.title }}</h3>
-              <p class="movie-meta">{{ movie.year }} • Diretor: {{ movie.director }}</p>
+              <h3 class="movie-title">{{ movie.titulo }}</h3>
+              <p class="movie-meta">{{ movie.ano }} • Diretor: {{ movie.diretor }}</p>
               <div class="movie-rating">
-                <span class="star-icon">★</span> {{ movie.rating }}
+                <span class="star-icon">★</span> {{ movie.nota }}
               </div>
               <span class="click-hint">Clique para avaliar</span>
             </div>
@@ -22,5 +22,10 @@
         </div>
       </div>
     }
+      <div>
+        <button (click)="voltar()" [disabled]="paginaAtual() === 1">← Voltar</button>
+        <span>Página {{ paginaAtual() }}</span>
+        <button (click)="avancar()" [disabled]="carregando()">Avançar →</button>
+      </div>
   </main>
 </div>

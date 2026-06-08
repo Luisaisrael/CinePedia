@@ -1,39 +1,55 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cadastro</title>
-</head>
-<body>
-  <div class="cadastro-container">
-    <div class="cadastro-conteudo">
-      <div class="cadastro-textos">
-        <h1>Sua história,<br>contada através<br>do que você ama.</h1>
-        <p>A rede social para amantes do cinema.</p>
-      </div>
+<div class="cadastro-container">
+  <div class="cadastro-conteudo">
 
-      <div class="cadastro-card">
+    <div class="cadastro-textos">
+      <h1>Sua história,<br>contada através<br>do que você ama.</h1>
+      <p>A rede social para amantes do cinema.</p>
+    </div>
+
+    <!-- [formGroup] conecta o formulário do .ts com este bloco -->
+    <div class="cadastro-card">
+      <form [formGroup]="formulario" (ngSubmit)="criar()">
+
         <div class="campo">
           <label>Nome</label>
-          <input type="text">
+          <input type="text" formControlName="nome" placeholder="Seu nome completo">
+          @if (formulario.get('nome')?.invalid && formulario.get('nome')?.touched) {
+            <span class="form-erro">Nome obrigatório (mínimo 2 caracteres)</span>
+          }
         </div>
+
         <div class="campo">
           <label>Endereço de Email</label>
-          <input type="email">
+          <input type="email" formControlName="email" placeholder="seu@email.com">
+          @if (formulario.get('email')?.invalid && formulario.get('email')?.touched) {
+            <span class="form-erro">Email inválido</span>
+          }
         </div>
+
         <div class="campo">
           <label>Senha</label>
-          <input type="password">
+          <input type="password" formControlName="senha" placeholder="Mínimo 6 caracteres">
+          @if (formulario.get('senha')?.invalid && formulario.get('senha')?.touched) {
+            <span class="form-erro">Senha obrigatória (mínimo 6 caracteres)</span>
+          }
         </div>
-        <button class="btn-criar">Criar</button>
-      </div>
-    </div>
 
-    <div class="login-link">
-      <p>Já possui uma conta?</p>
-      <button routerLink="/login">Entrar</button>
+        <!-- Exibe erro geral (email duplicado, servidor offline etc) -->
+        @if (erro()) {
+          <span class="form-erro geral">{{ erro() }}</span>
+        }
+
+        <button type="submit" class="btn-criar" [disabled]="carregando()">
+          {{ carregando() ? 'Criando...' : 'Criar' }}
+        </button>
+
+      </form>
     </div>
   </div>
-</body>
-</html>
+
+  <div class="login-link">
+    <p>Já possui uma conta?</p>
+    <!-- routerLink navega sem recarregar a página -->
+    <button routerLink="/login">Entrar</button>
+  </div>
+</div>

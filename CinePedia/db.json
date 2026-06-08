@@ -1,0 +1,38 @@
+{
+  "avaliacoes": [
+    {
+      "filmeId": 1433117,
+      "usuario": "luisa",
+      "nota": 4,
+      "comentario": "amei muito",
+      "data": "2026-06-07",
+      "id": "9xKrhaPWB48"
+    },
+    {
+      "filmeId": 1433117,
+      "usuario": "luisa",
+      "nota": 4,
+      "comentario": "ameu muito",
+      "data": "2026-06-07",
+      "id": "MBEc3k_LylQ"
+    },
+    {
+      "filmeId": 1433117,
+      "usuario": "bernardo",
+      "nota": 2,
+      "comentario": "nao gostei muito",
+      "data": "2026-06-07",
+      "id": "f8rH95pTkvk"
+    }
+  ],
+  "lista": [],
+  "usuarios": [
+    {
+      "nome": "luisa",
+      "email": "luisaisraelnobregacosta@gmail.com",
+      "senha": "Luisa0708",
+      "id": "HZu2lCDW1Zo"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

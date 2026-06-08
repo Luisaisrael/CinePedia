@@ -1,17 +1,37 @@
 import { Routes } from '@angular/router';
-import { Listagem } from './pages/listagem/listagem';
-import { Login } from './pages/login/login';
-import { Cadastro } from './pages/cadastro/cadastro';
-import { HomePage } from './pages/home-page/home-page';
-import { Perfil } from './pages/perfil/perfil';
-import { Relatorio } from './pages/relatorio/relatorio';
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
-  { path: '', component: HomePage }, 
-  { path: 'cadastro', component: Cadastro },//Quando a URL for /cadastro, carregue o componente cadastro.
-  { path: 'login', component: Login },
-  { path: 'listagem', component: Listagem},
-  { path: 'perfil', component: Perfil },
-  { path: 'relatorio', component: Relatorio },
-  { path: 'home-page', component: HomePage},
+  //não precisa de guard
+  {
+    path: '',
+    loadComponent: () => import('./pages/home-page/home-page').then(m => m.HomePage),
+  },
+
+  // Rotas publicas
+  { path: 'login',    loadComponent: () => import('./pages/login/login').then(m => m.Login) },
+  { path: 'cadastro', loadComponent: () => import('./pages/cadastro/cadastro').then(m => m.Cadastro) },
+  { path: 'home-page', loadComponent: () => import('./pages/home-page/home-page').then(m => m.HomePage) },
+
+  // Rotas protegidas — redireciona para /login se não estiver autenticado
+  {
+    path: 'listagem',
+    canActivate: [authGuard],
+    loadComponent: () => import('./pages/listagem/listagem').then(m => m.Listagem),
+  },
+  {
+    path: 'detalhe/:id',
+    canActivate: [authGuard],
+    loadComponent: () => import('./pages/detalhe/detalhe').then(m => m.Detalhe),
+  },
+  {
+    path: 'perfil',
+    canActivate: [authGuard],
+    loadComponent: () => import('./pages/perfil/perfil').then(m => m.Perfil),
+  },
+  {
+    path: 'relatorio',
+    canActivate: [authGuard],
+    loadComponent: () => import('./pages/relatorio/relatorio').then(m => m.Relatorio),
+  },
 ];

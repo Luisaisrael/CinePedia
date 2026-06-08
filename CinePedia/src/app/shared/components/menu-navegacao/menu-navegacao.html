@@ -10,13 +10,22 @@
       <li><a routerLink="/perfil" class="nav-link">Perfil</a></li>
       <li><a routerLink="/listagem" class="nav-link">Filmes</a></li>
       <li><a routerLink="/relatorio" class="nav-link">Relatório</a></li>
+      <li><a (click)="sair()" class="nav-link" style="cursor: pointer;">Sair</a></li>
+     
     </ul>
     <div class="search-container">
-      <form class="search-container">
-        <input type="text" id="search-bar" placeholder="Busca">
-        <a href="#"><img class="search-icon"
-            src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"></a>
-      </form>
+      <input
+        type="text"
+        id="search-bar"
+        placeholder="Busca"
+        [value]="termoBusca"
+        (input)="onDigitar($event)"
+        (keydown.enter)="buscar()"
+      />
+      <button (click)="buscar()" class="search-btn">
+        <img class="search-icon"
+          src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png">
+      </button>
     </div>
   </div>
 </nav>
