@@ -42,6 +42,11 @@ export class UsuariosService {
     return this.http.get<Usuario[]>(`${this.apiUrl}?email=${email}`);
   }
 
+  //atualizar a bio
+  atualizarPerfil(id: string, dados: { nome?: string; bio?: string }): Observable<any> {
+    return this.http.patch(`${this.apiUrl}/${id}`, dados);
+  }
+
   // Retorna o usuário do localStorage (usado pelo AuthGuard e navbar)
   getUsuarioLogado(): Usuario | null {
     const dados = localStorage.getItem('usuarioLogado');

@@ -25,9 +25,10 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/detalhe/detalhe').then(m => m.Detalhe),
   },
   {
-    path: 'perfil',
-    canActivate: [authGuard],
-    loadComponent: () => import('./pages/perfil/perfil').then(m => m.Perfil),
+  path: 'perfil',
+  loadComponent: () =>
+    import('./pages/perfil/perfil').then(m => m.Perfil),
+  canActivate: [authGuard]
   },
   {
     path: 'relatorio',

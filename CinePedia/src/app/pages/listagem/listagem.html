@@ -22,10 +22,10 @@
         </div>
       </div>
     }
-      <div>
-        <button (click)="voltar()" [disabled]="paginaAtual() === 1">← Voltar</button>
-        <span>Página {{ paginaAtual() }}</span>
-        <button (click)="avancar()" [disabled]="carregando()">Avançar →</button>
+      <div class="container-botoes">
+        <button id="botao" (click)="voltar()" [disabled]="paginaAtual() === 1">Voltar ←</button>
+        <span id="contador-pagina">Página {{ paginaAtual() }}</span>
+        <button id="botao" (click)="avancar()" [disabled]="carregando()">Avançar →</button>
       </div>
   </main>
 </div>

@@ -23,15 +23,72 @@
       "comentario": "nao gostei muito",
       "data": "2026-06-07",
       "id": "f8rH95pTkvk"
+    },
+    {
+      "filmeId": 1226863,
+      "usuario": "daniel",
+      "nota": 3,
+      "comentario": "nao gostei",
+      "data": "2026-06-11",
+      "id": "abOObDpAA98"
+    },
+    {
+      "filmeId": 1226863,
+      "usuario": "daniel 123",
+      "nota": 5,
+      "comentario": "gostei muito",
+      "data": "2026-06-11",
+      "id": "v8pq_K4GLHk"
+    },
+    {
+      "filmeId": 936075,
+      "usuario": "luisa",
+      "nota": 2,
+      "comentario": "amei demais",
+      "data": "2026-06-11",
+      "id": "5GW-YNr1Lz8"
+    },
+    {
+      "filmeId": 624860,
+      "usuario": "lulu amor",
+      "nota": 2,
+      "comentario": "amei muio",
+      "data": "2026-06-11",
+      "id": "lhONCmCxyWk"
+    },
+    {
+      "filmeId": 603,
+      "usuario": "luisa",
+      "nota": 2,
+      "comentario": "adorei o filme",
+      "data": "2026-06-11",
+      "id": "V8Uit08rMD4"
+    },
+    {
+      "filmeId": 790345,
+      "usuario": "luisa",
+      "nota": 3,
+      "comentario": "adorei o filme",
+      "data": "2026-06-11",
+      "id": "rQg4mjmR0x8"
+    },
+    {
+      "filmeId": 373223,
+      "usuario": "helena",
+      "nota": 3,
+      "comentario": "dakckencrevvvbg",
+      "data": "2026-06-11",
+      "id": "quRg54eXHyU"
     }
   ],
   "lista": [],
   "usuarios": [
     {
-      "nome": "luisa",
+      "nome": "bernardo",
       "email": "luisaisraelnobregacosta@gmail.com",
       "senha": "Luisa0708",
-      "id": "HZu2lCDW1Zo"
+      "id": "HZu2lCDW1Zo",
+      "bio": "fdvdfvfvegetg"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

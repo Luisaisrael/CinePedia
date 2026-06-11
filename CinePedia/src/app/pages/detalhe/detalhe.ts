@@ -17,26 +17,19 @@ export class Detalhe implements OnInit {
   private tmdb = inject(TmdbService);
   private avaliacoesService = inject(AvaliacoesService);
 
-  // Dados vindos da API do TMDB
   filme = signal<FilmeCatalogo | null>(null);
-
-  // Avaliações vindas do JSON-Server
   avaliacoes = signal<Avaliacao[]>([]);
-
   carregando = signal(true);
   erro = signal('');
-
-  // Nota que o usuário está selecionando
   notaSelecionada = signal(0);
-  notaHover = signal(0); // para efeito hover nas estrelas
+  notaHover = signal(0);
+  adicionadoNaLista = signal(false);
 
-  // Formulário de avaliação usando Reactive Forms
   formulario = new FormGroup({
     usuario: new FormControl('', [Validators.required, Validators.minLength(2)]),
     comentario: new FormControl('', [Validators.required, Validators.minLength(5)]),
   });
 
-  // Média calculada só das avaliações do CinePedia (escala 1-5)
   get mediaCinePedia(): string {
     const lista = this.avaliacoes();
     if (!lista.length) return 'Sem avaliações';
@@ -45,10 +38,18 @@ export class Detalhe implements OnInit {
   }
 
   ngOnInit(): void {
-    // Pega o :id da URL (ex: /detalhe/550 → id = '550')
     const id = Number(this.route.snapshot.paramMap.get('id'));
 
-    // Carrega detalhes do filme (TMDB) e avaliações (JSON-Server) em paralelo
+    // Verifica se o filme já está na lista salva
+    const listaSalva: number[] = JSON.parse(localStorage.getItem('minhaLista') || '[]');
+    this.adicionadoNaLista.set(listaSalva.includes(id));
+
+    // Carrega nota que o usuário já deu para este filme
+    const notasSalvas = JSON.parse(localStorage.getItem('notasUsuario') || '{}');
+    if (notasSalvas[id]) {
+      this.notaSelecionada.set(notasSalvas[id]);
+    }
+
     this.tmdb.getDetalhesFilme(id).subscribe({
       next: (dados) => {
         this.filme.set(dados);
@@ -66,16 +67,31 @@ export class Detalhe implements OnInit {
   carregarAvaliacoes(filmeId: number): void {
     this.avaliacoesService.getAvaliacoesPorFilme(filmeId).subscribe({
       next: (dados) => this.avaliacoes.set(dados),
-      error: () => {} // silencioso — JSON-Server pode não estar rodando
+      error: () => {}
     });
   }
 
-  // Chamado quando o usuário clica em uma estrela
   selecionarNota(nota: number): void {
     this.notaSelecionada.set(nota);
+
+    // Persiste a nota no localStorage indexada pelo id do filme
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    const notasSalvas = JSON.parse(localStorage.getItem('notasUsuario') || '{}');
+    notasSalvas[id] = nota;
+    localStorage.setItem('notasUsuario', JSON.stringify(notasSalvas));
   }
 
-  // Chamado ao enviar o formulário
+  adicionarNaLista(): void {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    const lista: number[] = JSON.parse(localStorage.getItem('minhaLista') || '[]');
+
+    if (!lista.includes(id)) {
+      lista.push(id);
+      localStorage.setItem('minhaLista', JSON.stringify(lista));
+      this.adicionadoNaLista.set(true);
+    }
+  }
+
   enviarAvaliacao(): void {
     if (this.formulario.invalid || this.notaSelecionada() === 0) return;
 
@@ -86,12 +102,11 @@ export class Detalhe implements OnInit {
       usuario: this.formulario.value.usuario!,
       nota: this.notaSelecionada(),
       comentario: this.formulario.value.comentario!,
-      data: new Date().toISOString().split('T')[0], // 'YYYY-MM-DD'
+      data: new Date().toISOString().split('T')[0],
     };
 
     this.avaliacoesService.salvarAvaliacao(novaAvaliacao).subscribe({
       next: (salva) => {
-        // Adiciona a nova avaliação no topo da lista sem recarregar tudo
         this.avaliacoes.update(lista => [salva, ...lista]);
         this.formulario.reset();
         this.notaSelecionada.set(0);
@@ -100,6 +115,5 @@ export class Detalhe implements OnInit {
     });
   }
 
-  // Array auxiliar para renderizar as 5 estrelas no template
   estrelas = [1, 2, 3, 4, 5];
 }

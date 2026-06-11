@@ -1,14 +1,21 @@
-
-body {
-  background-color: #385A7D;
-  margin: 0;
+:host { 
+  display: block;
+  min-height: 100vh;
+  background: linear-gradient(
+    180deg,
+    #607d9b 0%,
+    #42576d 25%,
+    #273544 65%,
+    #0f1720 100%
+  );
+  padding-top: 2rem;
 }
+
 .detalhe-container {
   max-width: 960px;
-  margin: 2rem auto;
-  padding: 30px 1.5rem;
-  color: white; 
-  background-color: #385A7D;
+  margin: 0 auto;
+  padding: 0 1.5rem 30px 1.5rem;
+  color: white;
 }
 
 .detalhe-topo {

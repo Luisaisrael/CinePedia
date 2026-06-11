@@ -1,0 +1,196 @@
+:host {
+  display: block;
+  min-height: 100vh;
+}
+
+.perfil-container {
+  min-height: 100vh;
+  background: linear-gradient(
+    180deg,
+    #607d9b 0%,
+    #42576d 25%,
+    #273544 65%,
+    #0f1720 100%
+  );
+  padding: 2rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #fff;
+}
+
+/* Limita largura do conteúdo interno */
+.perfil-header,
+.perfil-edicao,
+.minha-lista {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --- Header --- */
+.perfil-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  border-bottom: 1px solid #9ab;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #e50914;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.perfil-info h1 {
+  margin: 0;
+  font-size: 1.6rem;
+  color: #fff;
+}
+
+.perfil-info .email {
+  color: #9ab;
+  font-size: 0.9rem;
+}
+
+/* --- Formulário --- */
+.perfil-edicao {
+  margin-bottom: 2.5rem;
+}
+
+.perfil-edicao h2 {
+  font-size: 0.85rem;
+  letter-spacing: 0.075em;
+  color: #9ab;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.campo label {
+  font-size: 0.9rem;
+  color: #9ab;
+}
+
+.campo input,
+.campo textarea {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  color: #fff;
+  padding: 0.6rem 0.8rem;
+  font-size: 1rem;
+  resize: vertical;
+}
+
+.campo input:focus,
+.campo textarea:focus {
+  outline: none;
+  border-color: #40b4ff;
+}
+
+button[type="submit"] {
+  background: #e50914;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.6rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button[type="submit"]:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.mensagem-sucesso {
+  margin-left: 1rem;
+  color: #4caf50;
+  font-size: 0.9rem;
+}
+
+/* --- Minha Lista --- */
+.minha-lista h2 {
+  font-size: 0.85rem;
+  letter-spacing: 0.075em;
+  color: #9ab;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.minha-lista h2 span {
+  color: #9ab;
+  font-weight: 400;
+}
+
+.lista-vazia {
+  color: #9ab;
+}
+
+.filmes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 1rem;
+}
+
+.filme-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  cursor: pointer;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: transform 0.15s ease-in-out;
+}
+
+.filme-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 18px rgba(64, 180, 255, 0.15);
+}
+
+.filme-card img {
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.filme-info .titulo {
+  font-size: 0.85rem;
+  color: #fff;
+  margin: 0;
+}
+
+.filme-info .titulo:hover {
+  text-decoration: underline;
+}
+
+.filme-info .remover {
+  background: none;
+  border: none;
+  color: #9ab;
+  font-size: 0.75rem;
+  cursor: pointer;
+  padding: 0;
+}
+
+.filme-info .remover:hover {
+  color: #e50914;
+}

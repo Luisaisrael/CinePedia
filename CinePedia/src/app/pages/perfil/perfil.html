@@ -1,1 +1,69 @@
-<p>perfil works!</p>
+<div class="perfil-container">
+
+  <!-- Cabeçalho do perfil -->
+  <section class="perfil-header">
+    <div class="avatar">
+      {{ usuario?.nome?.charAt(0)?.toUpperCase() }}
+    </div>
+    <div class="perfil-info">
+      <h1>{{ usuario?.nome }}</h1>
+      <span class="email">{{ usuario?.email }}</span>
+    </div>
+  </section>
+
+  <!-- Formulário de edição -->
+  <section class="perfil-edicao">
+    <h2>Editar perfil</h2>
+    <form [formGroup]="form" (ngSubmit)="salvarPerfil()">
+
+      <div class="campo">
+        <label for="nome">Nome</label>
+        <input id="nome" type="text" formControlName="nome" />
+      </div>
+
+      <div class="campo">
+        <label for="bio">Bio</label>
+        <textarea
+          id="bio"
+          formControlName="bio"
+          rows="4"
+          placeholder="Escreva algo sobre você..."
+        ></textarea>
+      </div>
+
+      <button type="submit" [disabled]="salvando">
+        {{ salvando ? 'Salvando...' : 'Salvar' }}
+      </button>
+
+      <span class="mensagem-sucesso" *ngIf="mensagem">{{ mensagem }}</span>
+
+    </form>
+  </section>
+
+  <!-- Minha Lista -->
+  <section class="minha-lista">
+    <h2>Minha lista <span>({{ filmesLista.length }})</span></h2>
+
+    <p *ngIf="filmesLista.length === 0" class="lista-vazia">
+      Você ainda não adicionou filmes à sua lista.
+    </p>
+
+    <div class="filmes-grid" *ngIf="filmesLista.length > 0">
+      <div
+        class="filme-card"
+        *ngFor="let filme of filmesLista"
+      >
+        <img
+            [src]="filme.posterUrl"
+            [alt]="filme.titulo"
+            (click)="irParaDetalhe(filme.id)"
+        />
+        <div class="filme-info">
+          <p class="titulo" (click)="irParaDetalhe(filme.id)">{{ filme.title }}</p>
+          <button class="remover" (click)="removerDaLista(filme.id)">✕ Remover</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>

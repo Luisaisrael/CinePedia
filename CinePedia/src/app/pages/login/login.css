@@ -7,8 +7,15 @@
 }
 
 .login-container {
-  min-height: 100vh;
-  background-color: #4a6a8a;
+ min-height: 100vh;
+  background: linear-gradient(
+    180deg,
+    #607d9b 0%,
+    #42576d 25%,
+    #273544 65%,
+    #0f1720 100%
+  );
+  padding: 2rem;
 
   display: flex;
   flex-direction: column;
@@ -61,6 +68,7 @@
 
 .btn-entrar {
   height: 45px;
+  width: 98px;
 
   background-color: black;
   color: white;

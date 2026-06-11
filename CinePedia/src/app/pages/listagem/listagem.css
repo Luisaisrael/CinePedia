@@ -138,3 +138,26 @@
   letter-spacing: 0.05em;
   font-weight: 600;
 }
+#contador-pagina{
+    color: #ffffff;
+    white-space: nowrap;
+    text-align: center;
+
+}
+
+.container-botoes{
+  display: flex; /* Coloca os elementos filhos na mesma linha */
+  gap: 450px;
+}
+
+#botao{
+  background: #000000;
+  color: #ffffff;
+  border: none;
+  padding: 0.3rem 1.9rem;
+  border-radius: 4px;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}

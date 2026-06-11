@@ -1,4 +1,3 @@
-<body>
 <div class="detalhe-container">
 
   @if (carregando()) {
@@ -30,9 +29,9 @@
               >★</span>
             }
           </div>
-        <!-- <button class="btn-lista" (click)="adicionarNaLista()" [disabled]="adicionadoNaLista()">
-            {{ adicionadoNaLista() ? '✓ Na sua lista' : '+ Adicionar à lista' }}
-          </button>  --> 
+        <button class="btn-lista" (click)="adicionarNaLista()" [disabled]="adicionadoNaLista()">
+          {{ adicionadoNaLista() ? '✓ Na sua lista' : '+ Adicionar à lista' }}
+        </button>
         </div>
       </div>
 
@@ -125,4 +124,3 @@
   }
 
 </div>
-</body>

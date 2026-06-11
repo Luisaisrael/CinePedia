@@ -1,7 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 .hero {
-  min-height: 100vh;  
-  background-color: #4a6a8a;
+  min-height: 100vh;
+  background: linear-gradient(
+    180deg,
+    #607d9b 0%,
+    #42576d 25%,
+    #273544 65%,
+    #0f1720 100%
+  );
+  padding: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,8 +30,8 @@
 }
 
 .hero-content p {
-  color: #333;
-  margin-bottom: 2rem;
+  color: rgb(230, 219, 219);
+  margin-bottom: 4rem;
   font-size: 1.3rem;
 }
 

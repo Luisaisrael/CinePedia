@@ -8,10 +8,15 @@
 }
 
 .cadastro-container {
-  min-height: 100vh;
-  background-color:#4a6a8a;
-
-  padding: 80px;
+min-height: 100vh;
+  background: linear-gradient(
+    180deg,
+    #607d9b 0%,
+    #42576d 50%,
+    #0f1720 100%
+  );
+  padding: 2rem;
+  color: #fff;
 
   display: flex;
   flex-direction: column;
@@ -78,6 +83,7 @@
 
 .btn-criar {
   height: 48px;
+  width :98px;
 
   border: none;
   border-radius: 15px;
