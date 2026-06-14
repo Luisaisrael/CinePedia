@@ -17,6 +17,60 @@
       "comentario": "muito ruim",
       "data": "2026-06-14",
       "id": "IvhIJZjY5Tw"
+    },
+    {
+      "filmeId": 931285,
+      "usuarioId": "uL9gR_ZjaVs",
+      "usuario": "Bernardo Costa",
+      "nota": 2,
+      "comentario": "amei o filme",
+      "data": "2026-06-14",
+      "id": "56WdD0ycMPo"
+    },
+    {
+      "filmeId": 1226863,
+      "usuarioId": "uL9gR_ZjaVs",
+      "usuario": "Bernardo Costa",
+      "nota": 5,
+      "comentario": "muito bom. amo mario",
+      "data": "2026-06-14",
+      "id": "QGwIDI4nhOQ"
+    },
+    {
+      "filmeId": 1057265,
+      "usuarioId": "3xBeU7LOt88",
+      "usuario": "Luisa israel",
+      "nota": 3,
+      "comentario": "gostei, nota 3",
+      "data": "2026-06-14",
+      "id": "rB0DG-mkE80"
+    },
+    {
+      "filmeId": 1582770,
+      "usuarioId": "3xBeU7LOt88",
+      "usuario": "Luisa israel",
+      "nota": 5,
+      "comentario": "assustador",
+      "data": "2026-06-14",
+      "id": "OhIXq_f_3Ys"
+    },
+    {
+      "filmeId": 980431,
+      "usuarioId": "3xBeU7LOt88",
+      "usuario": "Luisa israel",
+      "nota": 2,
+      "comentario": "nao gosto de animes",
+      "data": "2026-06-14",
+      "id": "8GGKXp3HoBc"
+    },
+    {
+      "filmeId": 270473,
+      "usuarioId": "3xBeU7LOt88",
+      "usuario": "Luisa israel",
+      "nota": 2,
+      "comentario": "filme meio bobo",
+      "data": "2026-06-14",
+      "id": "CYCoGX9Jbjg"
     }
   ],
   "usuarios": [
@@ -25,6 +79,12 @@
       "email": "bernardo@gmail.com",
       "senha": "123456",
       "id": "uL9gR_ZjaVs"
+    },
+    {
+      "nome": "Luisa israel",
+      "email": "luisaisraelnobregacosta@gmail.com",
+      "senha": "luisa0708",
+      "id": "3xBeU7LOt88"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
