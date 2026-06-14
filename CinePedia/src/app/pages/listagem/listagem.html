@@ -3,12 +3,43 @@
     <span class="section-title">FILMES POPULARES</span>
   </header>
 
+  <div class="filtros-container">
+    <select class="filtro-select" [ngModel]="filtroAno()" (ngModelChange)="filtroAno.set($event)">
+      <option value="">Ano de lançamento</option>
+      @for (ano of anosDisponiveis; track ano) {
+        <option [value]="ano">{{ ano }}</option>
+      }
+    </select>
+
+    <select class="filtro-select" [ngModel]="filtroGenero()" (ngModelChange)="filtroGenero.set($event)">
+      <option value="">Gênero</option>
+      @for (genero of generos(); track genero.id) {
+        <option [value]="genero.name">{{ genero.name }}</option>
+      }
+    </select>
+
+    <select class="filtro-select" [ngModel]="filtroNota()" (ngModelChange)="filtroNota.set($event)">
+      <option value="">Avaliação</option>
+      <option value="9">9+ ★</option>
+      <option value="8">8+ ★</option>
+      <option value="7">7+ ★</option>
+      <option value="6">6+ ★</option>
+      <option value="5">5+ ★</option>
+    </select>
+
+    <button class="botao-aplicar" (click)="aplicarFiltros()">Buscar</button>
+
+    @if (temFiltroAtivo()) {
+      <button class="botao-limpar" (click)="limparERecarregar()">✕ Limpar filtros</button>
+    }
+  </div>
+
   <main class="movie-grid">
     @for (movie of filmes(); track movie.id) {
       <div class="movie-card" (click)="onSelecionarFilme(movie)">
         <div class="poster-container">
           <img [src]="movie.posterUrl" [alt]="movie.titulo" class="movie-poster">
-          
+
           <div class="movie-overlay">
             <div class="overlay-info">
               <h3 class="movie-title">{{ movie.titulo }}</h3>
@@ -22,10 +53,15 @@
         </div>
       </div>
     }
-      <div class="container-botoes">
-        <button id="botao" (click)="voltar()" [disabled]="paginaAtual() === 1">Voltar ←</button>
-        <span id="contador-pagina">Página {{ paginaAtual() }}</span>
-        <button id="botao" (click)="avancar()" [disabled]="carregando()">Avançar →</button>
-      </div>
   </main>
+
+  @if (carregando()) {
+    <p class="loading-text">Carregando filmes...</p>
+  } @else {
+    <div class="container-botoes">
+      <button class="botao" (click)="voltar()" [disabled]="paginaAtual() === 1">Voltar ←</button>
+      <span id="contador-pagina">Página {{ paginaAtual() }}</span>
+      <button class="botao" (click)="avancar()">Avançar →</button>
+    </div>
+  }
 </div>

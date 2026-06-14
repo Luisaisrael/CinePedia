@@ -1,20 +1,16 @@
 .catalog-container {
-  /* min-height: 100vh;
-  background-color: #4a6a8a;
-  color: #9ab;
-  padding: 2rem;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; */
-
   min-height: 100vh;
   background: linear-gradient(
     180deg,
-   #607d9b 0%,
-   #42576d 25%,
-   #273544 65%,
-   #0f1720 100%
+    #607d9b 0%,
+    #42576d 25%,
+    #273544 65%,
+    #0f1720 100%
   );
   padding: 2rem;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
 }
 
 .catalog-header {
@@ -22,6 +18,7 @@
   margin: 0 auto 1.5rem auto;
   border-bottom: 1px solid #9ab;
   padding-bottom: 0.5rem;
+  width: 100%;
 }
 
 .section-title {
@@ -31,16 +28,77 @@
   font-weight: 600;
 }
 
-/* Grid das Capas */
+.filtros-container {
+  display: flex;
+  gap: 0.75rem;
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto 1.5rem auto;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.filtro-select {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  border: 1px solid rgba(154, 171, 187, 0.4);
+  border-radius: 4px;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.filtro-select:focus {
+  outline: none;
+  border-color: #40b4ff;
+}
+
+.filtro-select option {
+  background: #273544;
+  color: #fff;
+}
+
+.botao-aplicar {
+  background: #40b4ff;
+  color: #0f1720;
+  border: none;
+  border-radius: 4px;
+  padding: 0.4rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.botao-aplicar:hover {
+  background: #69c6ff;
+}
+
+.botao-limpar {
+  background: transparent;
+  color: #9ab;
+  border: 1px solid rgba(154, 171, 187, 0.4);
+  border-radius: 4px;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.botao-limpar:hover {
+  color: #fff;
+  border-color: #fff;
+}
+
 .movie-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.25rem;
   max-width: 1100px;
+  width: 100%;
   margin: 0 auto;
 }
 
-/* O Card do Filme */
 .movie-card {
   cursor: pointer;
   border-radius: 5px;
@@ -49,7 +107,6 @@
   transition: transform 0.15s ease-in-out;
 }
 
-/* Efeito de borda verde/azul sutil ao redor do card no hover */
 .movie-card:hover {
   transform: scale(1.02);
   box-shadow: 0 0 18px rgba(64, 180, 255, 0.15);
@@ -72,14 +129,13 @@
   display: block;
 }
 
-/* O Overlay que esconde/mostra as informações */
 .movie-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(12, 14, 16, 0.92); /* Fundo quase preto translúcido */
+  background: rgba(12, 14, 16, 0.92);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -87,18 +143,14 @@
   padding: 1.25rem;
   box-sizing: border-box;
   text-align: center;
-  
-  /* Estado inicial: Invisível */
   opacity: 0;
   transition: opacity 0.2s ease-in-out;
 }
 
-/* Quando passa o mouse no card, revela o overlay */
 .movie-card:hover .movie-overlay {
   opacity: 1;
 }
 
-/* Conteúdo interno do Hover */
 .overlay-info {
   display: flex;
   flex-direction: column;
@@ -120,7 +172,7 @@
 }
 
 .movie-rating {
-  color: #ffb800; /* Amarelo das estrelas */
+  color: #ffb800;
   font-weight: bold;
   font-size: 1.1rem;
   margin-top: 0.25rem;
@@ -133,24 +185,35 @@
 .click-hint {
   margin-top: 1rem;
   font-size: 0.75rem;
-  color: #40b4ff; /* Azul de destaque para ação */
+  color: #40b4ff;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-weight: 600;
 }
-#contador-pagina{
-    color: #ffffff;
-    white-space: nowrap;
-    text-align: center;
 
+.loading-text {
+  color: #9ab;
+  text-align: center;
+  margin-top: 4rem;
 }
 
-.container-botoes{
-  display: flex; /* Coloca os elementos filhos na mesma linha */
-  gap: 450px;
+#contador-pagina {
+  color: #ffffff;
+  white-space: nowrap;
+  text-align: center;
 }
 
-#botao{
+.container-botoes {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1100px;
+  width: 100%;
+  margin: auto auto 0 auto;
+  padding-top: 2rem;
+}
+
+.botao {
   background: #000000;
   color: #ffffff;
   border: none;
@@ -159,5 +222,9 @@
   font-weight: 700;
   cursor: pointer;
   font-size: 0.9rem;
-  margin-top: 0.5rem;
+}
+
+.botao:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
 }

@@ -21,6 +21,9 @@ export class Perfil implements OnInit {
   salvando = false;
   mensagem = '';
 
+  // Chaves do localStorage com o id do usuário
+  private chaveMinhaLista = '';
+
   constructor(
     private fb: FormBuilder,
     private usuariosService: UsuariosService,
@@ -36,6 +39,9 @@ export class Perfil implements OnInit {
       return;
     }
 
+    // Monta a chave com o id do usuário logado
+    this.chaveMinhaLista = `minhaLista_${this.usuario.id}`;
+
     this.form = this.fb.group({
       nome: [this.usuario.nome || ''],
       bio: [this.usuario.bio || '']
@@ -45,14 +51,13 @@ export class Perfil implements OnInit {
   }
 
   carregarMinhaLista() {
-    const ids: number[] = JSON.parse(localStorage.getItem('minhaLista') || '[]');
+    const ids: number[] = JSON.parse(localStorage.getItem(this.chaveMinhaLista) || '[]');
 
     if (ids.length === 0) {
       this.filmesLista = [];
       return;
     }
 
-    // Busca detalhes de cada filme em paralelo
     const requisicoes = ids.map(id =>
       this.tmdbService.getDetalhesFilme(id).pipe(catchError(() => of(null)))
     );
@@ -70,7 +75,6 @@ export class Perfil implements OnInit {
 
     this.usuariosService.atualizarPerfil(this.usuario.id, dados).subscribe({
       next: (usuarioAtualizado) => {
-        // Atualiza o localStorage com os novos dados
         localStorage.setItem('usuarioLogado', JSON.stringify(usuarioAtualizado));
         this.usuario = usuarioAtualizado;
         this.mensagem = 'Perfil salvo!';
@@ -85,9 +89,9 @@ export class Perfil implements OnInit {
   }
 
   removerDaLista(filmeId: number) {
-    const ids: number[] = JSON.parse(localStorage.getItem('minhaLista') || '[]');
+    const ids: number[] = JSON.parse(localStorage.getItem(this.chaveMinhaLista) || '[]');
     const novaLista = ids.filter(id => id !== filmeId);
-    localStorage.setItem('minhaLista', JSON.stringify(novaLista));
+    localStorage.setItem(this.chaveMinhaLista, JSON.stringify(novaLista));
     this.filmesLista = this.filmesLista.filter(f => f.id !== filmeId);
   }
 

@@ -11,11 +11,9 @@
   @if (filme(); as f) {
     <div class="detalhe-topo">
 
-      <!-- Poster do filme -->
       <div class="poster">
         <img [src]="f.posterUrl" [alt]="f.titulo" class="detalhe-poster">
 
-        <!-- Avaliação do usuário-->
         <div class="avaliar-box">
           <span class="avaliar-label">Avaliar</span>
           <div class="estrelas-interativas">
@@ -29,26 +27,23 @@
               >★</span>
             }
           </div>
-        <button class="btn-lista" (click)="adicionarNaLista()" [disabled]="adicionadoNaLista()">
-          {{ adicionadoNaLista() ? '✓ Na sua lista' : '+ Adicionar à lista' }}
-        </button>
+          <button class="btn-lista" (click)="adicionarNaLista()" [disabled]="adicionadoNaLista()">
+            {{ adicionadoNaLista() ? '✓ Na sua lista' : '+ Adicionar à lista' }}
+          </button>
         </div>
       </div>
 
-      <!-- Informações do filme -->
       <div class="detalhe-info">
         <h1 class="detalhe-titulo">
           {{ f.titulo }}
           <span class="detalhe-ano">{{ f.ano }}</span>
         </h1>
 
-        <!-- Nota do TMDB-->
         <div class="notas-grid">
           <div class="nota-item">
             <span class="nota-label">Classificação do TMDB</span>
             <span class="nota-valor tmdb">{{ f.nota | number:'1.1-1' }}</span>
           </div>
-          <!-- Nota do CinePedia-->
           <div class="nota-item">
             <span class="nota-label">Classificação do CinePedia</span>
             <span class="nota-valor cinepedia">{{ mediaCinePedia }}</span>
@@ -60,7 +55,6 @@
       </div>
     </div>
 
-    <!-- Seção de comentários (avaliações do JSON-Server) -->
     <div class="avaliacoes-secao">
       <div class="avaliacoes-header">
         <h2>Comentários</h2>
@@ -72,7 +66,6 @@
           <div class="av-header">
             <div class="av-avatar">{{ av.usuario[0].toUpperCase() }}</div>
             <strong class="av-usuario">{{ av.usuario }}</strong>
-            <!-- Estrelas de exibição (nota salva no JSON-Server, escala 1-5) -->
             <div class="av-estrelas">
               @for (e of estrelas; track e) {
                 <span [class.ativa]="e <= av.nota">★</span>
@@ -88,19 +81,10 @@
         <p class="sem-avaliacoes">Nenhuma avaliação ainda. Seja o primeiro!</p>
       }
 
-      <!-- Formulário para nova avaliação (Reactive Forms) -->
       <div class="form-avaliacao">
         <h3>Sua avaliação</h3>
+        <!-- Campo de nome removido — vem automaticamente do usuário logado -->
         <form [formGroup]="formulario" (ngSubmit)="enviarAvaliacao()">
-          <input
-            formControlName="usuario"
-            placeholder="Seu nome"
-            class="form-input"
-          />
-          @if (formulario.get('usuario')?.invalid && formulario.get('usuario')?.touched) {
-            <span class="form-erro">Nome obrigatório (mínimo 2 caracteres)</span>
-          }
-
           <textarea
             formControlName="comentario"
             placeholder="Escreva sua avaliação..."
