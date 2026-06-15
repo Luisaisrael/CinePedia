@@ -1,1 +1,16 @@
-<p>relatorio works!</p>
+<div class="relatorio-container">
+  <h1>Relatório CinePedia</h1>
+
+  @if (urlRelatorio) {
+    <div class="iframe-wrapper">
+      <iframe
+        title="Relatório CinePedia"
+        [src]="urlRelatorio"
+        frameborder="0"
+        allowFullScreen="true">
+      </iframe>
+    </div>
+  } @else {
+    <p>Usuário não identificado. Faça login novamente.</p>
+  }
+</div>
