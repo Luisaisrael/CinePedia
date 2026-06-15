@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 :host { 
   display: block;
   min-height: 100vh;
@@ -16,6 +18,7 @@
   margin: 0 auto;
   padding: 0 1.5rem 30px 1.5rem;
   color: white;
+  font-family: 'Inter', sans-serif;
 }
 
 .detalhe-topo {
@@ -265,7 +268,7 @@
 
 .form-textarea {
   resize: vertical;
-  font-family: inherit;
+  font-family: 'Inter', sans-serif;
 }
 
 .form-erro {
